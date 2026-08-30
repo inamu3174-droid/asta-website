@@ -111,9 +111,167 @@
     @media (max-width: 768px) {
       .hero-title { font-size: 2.25rem; line-height: 1.2; }
     }
+/* ===== CINEMATIC LOADING SCREEN ===== */
+#asta-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0f1410;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.9s;
+}
+#asta-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#asta-loader .loader-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 45%, rgba(44, 62, 45, 0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(201, 162, 39, 0.06) 0%, transparent 60%),
+    #0f1410;
+  overflow: hidden;
+}
+#asta-loader .loader-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+}
+#asta-loader .glow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.12) 0%, rgba(44, 62, 45, 0.08) 40%, transparent 70%);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+#asta-loader.is-ready .glow {
+  opacity: 1;
+  transform: scale(1);
+}
+#asta-loader .logo-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+#asta-loader.is-ready .logo-wrap {
+  opacity: 1;
+  transform: scale(1);
+}
+#asta-loader .logo-wrap img {
+  display: block;
+  width: auto;
+  height: 72px;
+  max-width: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px rgba(201, 162, 39, 0.15));
+}
+@media (min-width: 768px) {
+  #asta-loader .logo-wrap img {
+    height: 88px;
+    max-width: 280px;
+  }
+}
+#asta-loader .sweep {
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 250, 240, 0.12), transparent);
+  transform: skewX(-18deg);
+  opacity: 0;
+  pointer-events: none;
+}
+#asta-loader.is-ready .sweep {
+  animation: asta-sweep 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
+}
+@keyframes asta-sweep {
+  0% { left: -40%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: 120%; opacity: 0; }
+}
+#asta-loader .loader-text {
+  margin-top: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: rgba(245, 240, 232, 0.55);
+  text-transform: none;
+  opacity: 0;
+  transition: opacity 1s ease 0.8s;
+}
+#asta-loader.is-ready .loader-text {
+  opacity: 1;
+}
+#asta-loader .progress-track {
+  margin-top: 36px;
+  width: 64px;
+  height: 1px;
+  background: rgba(245, 240, 232, 0.12);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease 1s;
+}
+#asta-loader.is-ready .progress-track {
+  opacity: 1;
+}
+#asta-loader .progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(201, 162, 39, 0.4), rgba(245, 240, 232, 0.7));
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  #asta-loader .glow,
+  #asta-loader .logo-wrap,
+  #asta-loader .loader-text,
+  #asta-loader .progress-track {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  #asta-loader .sweep { display: none; }
+}
   </style>
 </head>
 <body class="bg-ivory text-charcoal antialiased">
+
+  <!-- CINEMATIC LOADING SCREEN -->
+  <div id="asta-loader" aria-hidden="true" role="status" aria-label="Loading ASTA">
+    <div class="loader-bg"></div>
+    <div class="glow"></div>
+    <div class="logo-wrap">
+      <div style="position:relative; overflow:hidden;">
+        <img src="/images/logo.jpg" alt="ASTA" width="280" height="88" decoding="async" />
+        <div class="sweep"></div>
+      </div>
+      <p class="loader-text">Crafted in Kashmir.</p>
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-bar" id="asta-progress"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- HEADER -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -222,110 +380,70 @@
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
         
-        <!-- Product 1: Raw Almonds -->
         <article class="product-card group fade-up">
           <a href="/products/raw-almonds.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img 
-                src="https://images.unsplash.com/photo-1508061253366-f7da027dfa63?w=800&q=80" 
-                alt="Raw Almonds from Kashmir" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <img src="https://images.unsplash.com/photo-1508061253366-f7da027dfa63?w=800&q=80" alt="Raw Almonds from Kashmir" class="w-full h-full object-cover" loading="lazy" />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">Raw Almonds</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Kept in its character.</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">500 g</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
-              ORDER ON WHATSAPP →
-            </span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
           </a>
         </article>
 
-        <!-- Product 2: Raw Walnut Kernels -->
         <article class="product-card group fade-up">
           <a href="/products/raw-walnut-kernels.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img 
-                src="https://images.unsplash.com/photo-1599599810694-b5ac4a0f0e1e?w=800&q=80" 
-                alt="Raw Walnut Kernels from Kashmir" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <img src="https://images.unsplash.com/photo-1599599810694-b5ac4a0f0e1e?w=800&q=80" alt="Raw Walnut Kernels from Kashmir" class="w-full h-full object-cover" loading="lazy" />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">Raw Walnut Kernels</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Kept in its character.</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">500 g</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
-              ORDER ON WHATSAPP →
-            </span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
           </a>
         </article>
 
-        <!-- Product 3: Saffron -->
         <article class="product-card group fade-up">
           <a href="/products/saffron.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img 
-                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" 
-                alt="Raw Mogra Saffron from Kashmir" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" alt="Raw Mogra Saffron from Kashmir" class="w-full h-full object-cover" loading="lazy" />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">Saffron</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Raw Mogra</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">2 g</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
-              ORDER ON WHATSAPP →
-            </span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
           </a>
         </article>
 
-        <!-- Product 4: White Honey -->
         <article class="product-card group fade-up">
           <a href="/products/white-honey.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img 
-                src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&q=80" 
-                alt="White Honey Acacia Flora" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&q=80" alt="White Honey Acacia Flora" class="w-full h-full object-cover" loading="lazy" />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">White Honey</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Acacia Flora</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">325 g</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
-              ORDER ON WHATSAPP →
-            </span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
           </a>
         </article>
 
-        <!-- Product 5: Kahwa -->
         <article class="product-card group fade-up sm:col-span-2 lg:col-span-1">
           <a href="/products/kahwa.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img 
-                src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&q=80" 
-                alt="Kahwa Saffron Mist Blend" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&q=80" alt="Kahwa Saffron Mist Blend" class="w-full h-full object-cover" loading="lazy" />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">Kahwa</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Saffron Mist Blend</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">Blend</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
-              ORDER ON WHATSAPP →
-            </span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
           </a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- THE RITUAL — Kahwa Brewing -->
+  <!-- THE RITUAL -->
   <section id="ritual" class="py-20 md:py-28 bg-cream">
     <div class="max-w-5xl mx-auto px-5 md:px-8">
       <div class="text-center mb-14 fade-up">
@@ -333,35 +451,25 @@
         <h2 class="font-cormorant text-3xl md:text-4xl text-forest mb-4">How to Brew Kahwa</h2>
         <div class="accent-line mx-auto"></div>
       </div>
-      
       <div class="grid md:grid-cols-3 gap-10 md:gap-8">
         <div class="fade-up">
           <p class="step-num text-4xl mb-4">01</p>
           <h3 class="font-cormorant text-xl text-forest mb-3">Boil</h3>
-          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">
-            Bring 120ml of water to a rolling boil in a pan.
-          </p>
+          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">Bring 120ml of water to a rolling boil in a pan.</p>
         </div>
         <div class="fade-up">
           <p class="step-num text-4xl mb-4">02</p>
           <h3 class="font-cormorant text-xl text-forest mb-3">Infuse</h3>
-          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">
-            Add 1 teaspoon of Kahwa powder and simmer on low heat for 3 to 4 minutes.
-          </p>
+          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">Add 1 teaspoon of Kahwa powder and simmer on low heat for 3 to 4 minutes.</p>
         </div>
         <div class="fade-up">
           <p class="step-num text-4xl mb-4">03</p>
           <h3 class="font-cormorant text-xl text-forest mb-3">Garnish</h3>
-          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">
-            Strain into a cup, add the crushed almond slices to taste, and enjoy.
-          </p>
+          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">Strain into a cup, add the crushed almond slices to taste, and enjoy.</p>
         </div>
       </div>
-      
       <div class="text-center mt-12 fade-up">
-        <a href="/products/kahwa.html" class="font-dm text-sm font-medium text-forest tracking-wide hover:underline underline-offset-4">
-          Discover Kahwa — Saffron Mist Blend →
-        </a>
+        <a href="/products/kahwa.html" class="font-dm text-sm font-medium text-forest tracking-wide hover:underline underline-offset-4">Discover Kahwa — Saffron Mist Blend →</a>
       </div>
     </div>
   </section>
@@ -370,9 +478,7 @@
   <section id="story" class="py-20 md:py-28">
     <div class="max-w-3xl mx-auto px-5 md:px-8 text-center fade-up">
       <p class="font-dm text-xs tracking-[0.25em] uppercase text-botanical mb-4">Our Story</p>
-      <h2 class="font-cormorant text-3xl md:text-4xl text-forest mb-10 leading-snug">
-        Some things are better brought closer.
-      </h2>
+      <h2 class="font-cormorant text-3xl md:text-4xl text-forest mb-10 leading-snug">Some things are better brought closer.</h2>
       <div class="space-y-6 font-dm text-base text-charcoal/80 leading-relaxed text-left md:text-center">
         <p>ASTA began with a simple idea to bring a little piece of Kashmir closer to you.</p>
         <p>From the warmth of its homes to the things gathered from its land, we choose the flavours that feel familiar, honest and worth sharing.</p>
@@ -384,18 +490,12 @@
     </div>
   </section>
 
-  <!-- FROM HERE, TO YOU — CTA -->
+  <!-- FROM HERE, TO YOU -->
   <section class="py-20 md:py-24 bg-forest text-ivory">
     <div class="max-w-2xl mx-auto px-5 md:px-8 text-center fade-up">
       <h2 class="font-cormorant text-3xl md:text-4xl mb-4">From here, to you.</h2>
-      <p class="font-dm text-ivory/80 mb-10 leading-relaxed">
-        Questions, recommendations, or simply want to say hello?<br>We’d love to hear from you.
-      </p>
-      <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." 
-         target="_blank" rel="noopener"
-         class="inline-flex bg-ivory text-forest font-dm text-sm font-medium tracking-wide px-8 py-3.5 rounded-sm hover:bg-cream transition-colors">
-        CHAT ON WHATSAPP
-      </a>
+      <p class="font-dm text-ivory/80 mb-10 leading-relaxed">Questions, recommendations, or simply want to say hello?<br>We’d love to hear from you.</p>
+      <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="inline-flex bg-ivory text-forest font-dm text-sm font-medium tracking-wide px-8 py-3.5 rounded-sm hover:bg-cream transition-colors">CHAT ON WHATSAPP</a>
       <p class="font-dm text-sm text-ivory/60 mt-6">+91 60065 48199</p>
     </div>
   </section>
@@ -406,11 +506,8 @@
       <div class="grid md:grid-cols-3 gap-12 md:gap-8">
         <div>
           <p class="font-cormorant italic text-forest text-lg mb-2">From Kashmir, Closer to You.</p>
-          <p class="font-dm text-sm text-charcoal/60 leading-relaxed">
-            Bijbehara, Anantnag<br>Kashmir - 192124
-          </p>
+          <p class="font-dm text-sm text-charcoal/60 leading-relaxed">Bijbehara, Anantnag<br>Kashmir - 192124</p>
         </div>
-        
         <div>
           <h4 class="font-dm text-xs tracking-[0.2em] uppercase text-botanical mb-4">Connect</h4>
           <ul class="space-y-3 font-dm text-sm text-charcoal/70">
@@ -419,16 +516,11 @@
             <li><a href="https://www.instagram.com/houseofasta" target="_blank" rel="noopener" class="hover:text-forest transition-colors">@houseofasta</a></li>
           </ul>
         </div>
-        
         <div>
           <h4 class="font-dm text-xs tracking-[0.2em] uppercase text-botanical mb-4">Details</h4>
-          <p class="font-dm text-sm text-charcoal/60 leading-relaxed">
-            FSSAI License<br>
-            21026017000306
-          </p>
+          <p class="font-dm text-sm text-charcoal/60 leading-relaxed">FSSAI License<br>21026017000306</p>
         </div>
       </div>
-      
       <div class="mt-14 pt-8 border-t border-stone/30 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="font-dm text-xs text-charcoal/50">© 2026 ASTA. All rights reserved.</p>
         <p class="font-dm text-xs text-charcoal/50">Not louder. Just closer.</p>
@@ -436,43 +528,63 @@
     </div>
   </footer>
 
-  <!-- Mobile sticky CTA -->
   <div class="mobile-cta fixed bottom-0 left-0 right-0 z-40 md:hidden bg-ivory border-t border-stone/40 px-4 py-3">
-    <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." 
-       target="_blank" rel="noopener"
-       class="block w-full btn-whatsapp text-center font-dm text-sm font-medium tracking-wide py-3.5 rounded-sm">
-      SHOP ON WHATSAPP
-    </a>
+    <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="block w-full btn-whatsapp text-center font-dm text-sm font-medium tracking-wide py-3.5 rounded-sm">SHOP ON WHATSAPP</a>
   </div>
 
   <script>
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.remove('header-scrolled');
-      }
+      if (window.scrollY > 40) header.classList.add('header-scrolled');
+      else header.classList.remove('header-scrolled');
     });
-
     const menuBtn = document.getElementById('menu-btn');
     const closeMenu = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
-    const menuLinks = document.querySelectorAll('.menu-link');
-    
     menuBtn?.addEventListener('click', () => mobileMenu.classList.add('open'));
     closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    menuLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
-
+    document.querySelectorAll('.menu-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+  (function () {
+    var loader = document.getElementById('asta-loader');
+    var progress = document.getElementById('asta-progress');
+    if (!loader) return;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var start = performance.now();
+    var minDisplay = reduced ? 400 : 2200;
+    var progressVal = 0;
+    requestAnimationFrame(function () { loader.classList.add('is-ready'); });
+    function tickProgress() {
+      if (progressVal < 85) {
+        progressVal += (85 - progressVal) * 0.04 + 0.3;
+        if (progress) progress.style.width = Math.min(progressVal, 85) + '%';
+        requestAnimationFrame(tickProgress);
+      }
+    }
+    if (!reduced) requestAnimationFrame(tickProgress);
+    function finish() {
+      var elapsed = performance.now() - start;
+      var wait = Math.max(0, minDisplay - elapsed);
+      setTimeout(function () {
+        if (progress) progress.style.width = '100%';
+        setTimeout(function () {
+          loader.classList.add('is-hidden');
+          document.documentElement.classList.add('asta-loaded');
+          setTimeout(function () {
+            if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 1000);
+        }, reduced ? 100 : 320);
+      }, wait);
+    }
+    if (document.readyState === 'complete') finish();
+    else window.addEventListener('load', finish);
+  })();
   </script>
 </body>
 </html>
