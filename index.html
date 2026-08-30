@@ -9,7 +9,6 @@
   <meta property="og:title" content="ASTA | From Kashmir, Closer to You" />
   <meta property="og:description" content="A little of Kashmir, brought closer. Honey, saffron, Kahwa and dry fruits from Kashmir." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/images/logo.jpg" />
   <link rel="icon" href="/images/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -115,17 +114,22 @@
   </style>
 </head>
 <body class="bg-ivory text-charcoal antialiased">
+
+  <!-- HEADER -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 md:py-5 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2">
-        <img src="/images/logo.jpg" alt="ASTA" class="h-9 md:h-11 w-auto object-contain" />
+        <img src="/images/logo.jpg" alt="ASTA" class="h-9 md:h-11 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <span class="font-cormorant text-2xl text-forest tracking-wide" style="display:none">ASTA</span>
       </a>
+      
       <nav class="hidden md:flex items-center gap-10 font-dm text-sm tracking-wide text-charcoal/80">
         <a href="#collection" class="hover:text-forest transition-colors">SHOP</a>
         <a href="#story" class="hover:text-forest transition-colors">OUR STORY</a>
         <a href="#contact" class="hover:text-forest transition-colors">CONTACT</a>
         <a href="https://www.instagram.com/houseofasta" target="_blank" rel="noopener" class="hover:text-forest transition-colors">INSTAGRAM</a>
       </nav>
+      
       <div class="flex items-center gap-4">
         <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." 
            target="_blank" rel="noopener"
@@ -140,9 +144,11 @@
       </div>
     </div>
   </header>
+
+  <!-- Mobile Menu -->
   <div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 bg-ivory md:hidden flex flex-col">
     <div class="flex items-center justify-between px-5 py-4 border-b border-stone/40">
-      <img src="/images/logo.jpg" alt="ASTA" class="h-9 w-auto" />
+      <span class="font-cormorant text-2xl text-forest">ASTA</span>
       <button id="close-menu" class="p-2" aria-label="Close menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M6 6l12 12M18 6L6 18"/>
@@ -161,6 +167,8 @@
       </a>
     </nav>
   </div>
+
+  <!-- HERO -->
   <section class="relative min-h-screen flex items-end pb-16 md:pb-24 pt-28">
     <div class="absolute inset-0 overflow-hidden">
       <img 
@@ -171,9 +179,10 @@
       />
       <div class="absolute inset-0 hero-overlay"></div>
     </div>
+    
     <div class="relative max-w-7xl mx-auto px-5 md:px-8 w-full">
       <div class="max-w-2xl fade-up">
-        <img src="/images/logo.jpg" alt="ASTA" class="h-14 md:h-16 w-auto mb-8 opacity-90" />
+        <img src="/images/logo.jpg" alt="ASTA" class="h-14 md:h-16 w-auto mb-8 opacity-90" onerror="this.outerHTML='<p class=\'font-cormorant text-3xl text-forest mb-8 tracking-wide\'>ASTA</p>'" />
         <h1 class="font-cormorant italic text-4xl md:text-5xl lg:text-[3.5rem] leading-tight text-forest mb-6 hero-title">
           From Kashmir, Closer to You.
         </h1>
@@ -188,6 +197,8 @@
       </div>
     </div>
   </section>
+
+  <!-- A LITTLE OF KASHMIR -->
   <section class="py-20 md:py-28 bg-cream">
     <div class="max-w-4xl mx-auto px-5 md:px-8 text-center fade-up">
       <p class="font-dm text-xs tracking-[0.25em] uppercase text-botanical mb-4">A Little of Kashmir</p>
@@ -200,71 +211,121 @@
       </p>
     </div>
   </section>
+
+  <!-- THE COLLECTION -->
   <section id="collection" class="py-20 md:py-28">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
       <div class="text-center mb-14 md:mb-16 fade-up">
         <p class="font-dm text-xs tracking-[0.25em] uppercase text-botanical mb-3">The ASTA Collection</p>
         <h2 class="font-cormorant text-3xl md:text-4xl text-forest">From the Land</h2>
       </div>
+      
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        
+        <!-- Product 1: Raw Almonds -->
         <article class="product-card group fade-up">
           <a href="/products/raw-almonds.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img src="https://images.unsplash.com/photo-1508061253366-f7da027dfa63?w=800&q=80" alt="Raw Almonds from Kashmir" class="w-full h-full object-cover" loading="lazy" />
+              <img 
+                src="https://images.unsplash.com/photo-1508061253366-f7da027dfa63?w=800&q=80" 
+                alt="Raw Almonds from Kashmir" 
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">Raw Almonds</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Kept in its character.</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">500 g</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
+              ORDER ON WHATSAPP →
+            </span>
           </a>
         </article>
+
+        <!-- Product 2: Raw Walnut Kernels -->
         <article class="product-card group fade-up">
           <a href="/products/raw-walnut-kernels.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img src="https://images.unsplash.com/photo-1599599810694-b5ac4a0f0e1e?w=800&q=80" alt="Raw Walnut Kernels from Kashmir" class="w-full h-full object-cover" loading="lazy" />
+              <img 
+                src="https://images.unsplash.com/photo-1599599810694-b5ac4a0f0e1e?w=800&q=80" 
+                alt="Raw Walnut Kernels from Kashmir" 
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">Raw Walnut Kernels</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Kept in its character.</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">500 g</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
+              ORDER ON WHATSAPP →
+            </span>
           </a>
         </article>
+
+        <!-- Product 3: Saffron -->
         <article class="product-card group fade-up">
           <a href="/products/saffron.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" alt="Raw Mogra Saffron from Kashmir" class="w-full h-full object-cover" loading="lazy" />
+              <img 
+                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" 
+                alt="Raw Mogra Saffron from Kashmir" 
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">Saffron</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Raw Mogra</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">2 g</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
+              ORDER ON WHATSAPP →
+            </span>
           </a>
         </article>
+
+        <!-- Product 4: White Honey -->
         <article class="product-card group fade-up">
           <a href="/products/white-honey.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&q=80" alt="White Honey Acacia Flora" class="w-full h-full object-cover" loading="lazy" />
+              <img 
+                src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&q=80" 
+                alt="White Honey Acacia Flora" 
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">White Honey</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Acacia Flora</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">325 g</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
+              ORDER ON WHATSAPP →
+            </span>
           </a>
         </article>
+
+        <!-- Product 5: Kahwa -->
         <article class="product-card group fade-up sm:col-span-2 lg:col-span-1">
           <a href="/products/kahwa.html" class="block">
             <div class="aspect-[4/5] overflow-hidden bg-beige mb-5">
-              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&q=80" alt="Kahwa Saffron Mist Blend" class="w-full h-full object-cover" loading="lazy" />
+              <img 
+                src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&q=80" 
+                alt="Kahwa Saffron Mist Blend" 
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
             <h3 class="font-cormorant text-xl text-forest mb-1">Kahwa</h3>
             <p class="font-dm text-sm text-charcoal/60 mb-1">Saffron Mist Blend</p>
             <p class="font-dm text-xs text-charcoal/50 mb-4">Blend</p>
-            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">ORDER ON WHATSAPP →</span>
+            <span class="font-dm text-sm font-medium text-forest tracking-wide group-hover:underline underline-offset-4">
+              ORDER ON WHATSAPP →
+            </span>
           </a>
         </article>
       </div>
     </div>
   </section>
+
+  <!-- THE RITUAL — Kahwa Brewing -->
   <section id="ritual" class="py-20 md:py-28 bg-cream">
     <div class="max-w-5xl mx-auto px-5 md:px-8">
       <div class="text-center mb-14 fade-up">
@@ -272,32 +333,46 @@
         <h2 class="font-cormorant text-3xl md:text-4xl text-forest mb-4">How to Brew Kahwa</h2>
         <div class="accent-line mx-auto"></div>
       </div>
+      
       <div class="grid md:grid-cols-3 gap-10 md:gap-8">
         <div class="fade-up">
           <p class="step-num text-4xl mb-4">01</p>
           <h3 class="font-cormorant text-xl text-forest mb-3">Boil</h3>
-          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">Bring 120ml of water to a rolling boil in a pan.</p>
+          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">
+            Bring 120ml of water to a rolling boil in a pan.
+          </p>
         </div>
         <div class="fade-up">
           <p class="step-num text-4xl mb-4">02</p>
           <h3 class="font-cormorant text-xl text-forest mb-3">Infuse</h3>
-          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">Add 1 teaspoon of Kahwa powder and simmer on low heat for 3 to 4 minutes.</p>
+          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">
+            Add 1 teaspoon of Kahwa powder and simmer on low heat for 3 to 4 minutes.
+          </p>
         </div>
         <div class="fade-up">
           <p class="step-num text-4xl mb-4">03</p>
           <h3 class="font-cormorant text-xl text-forest mb-3">Garnish</h3>
-          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">Strain into a cup, add the crushed almond slices to taste, and enjoy.</p>
+          <p class="font-dm text-sm text-charcoal/70 leading-relaxed">
+            Strain into a cup, add the crushed almond slices to taste, and enjoy.
+          </p>
         </div>
       </div>
+      
       <div class="text-center mt-12 fade-up">
-        <a href="/products/kahwa.html" class="font-dm text-sm font-medium text-forest tracking-wide hover:underline underline-offset-4">Discover Kahwa — Saffron Mist Blend →</a>
+        <a href="/products/kahwa.html" class="font-dm text-sm font-medium text-forest tracking-wide hover:underline underline-offset-4">
+          Discover Kahwa — Saffron Mist Blend →
+        </a>
       </div>
     </div>
   </section>
+
+  <!-- OUR STORY -->
   <section id="story" class="py-20 md:py-28">
     <div class="max-w-3xl mx-auto px-5 md:px-8 text-center fade-up">
       <p class="font-dm text-xs tracking-[0.25em] uppercase text-botanical mb-4">Our Story</p>
-      <h2 class="font-cormorant text-3xl md:text-4xl text-forest mb-10 leading-snug">Some things are better brought closer.</h2>
+      <h2 class="font-cormorant text-3xl md:text-4xl text-forest mb-10 leading-snug">
+        Some things are better brought closer.
+      </h2>
       <div class="space-y-6 font-dm text-base text-charcoal/80 leading-relaxed text-left md:text-center">
         <p>ASTA began with a simple idea to bring a little piece of Kashmir closer to you.</p>
         <p>From the warmth of its homes to the things gathered from its land, we choose the flavours that feel familiar, honest and worth sharing.</p>
@@ -308,22 +383,34 @@
       </div>
     </div>
   </section>
+
+  <!-- FROM HERE, TO YOU — CTA -->
   <section class="py-20 md:py-24 bg-forest text-ivory">
     <div class="max-w-2xl mx-auto px-5 md:px-8 text-center fade-up">
       <h2 class="font-cormorant text-3xl md:text-4xl mb-4">From here, to you.</h2>
-      <p class="font-dm text-ivory/80 mb-10 leading-relaxed">Questions, recommendations, or simply want to say hello?<br>We’d love to hear from you.</p>
-      <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="inline-flex bg-ivory text-forest font-dm text-sm font-medium tracking-wide px-8 py-3.5 rounded-sm hover:bg-cream transition-colors">CHAT ON WHATSAPP</a>
+      <p class="font-dm text-ivory/80 mb-10 leading-relaxed">
+        Questions, recommendations, or simply want to say hello?<br>We’d love to hear from you.
+      </p>
+      <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." 
+         target="_blank" rel="noopener"
+         class="inline-flex bg-ivory text-forest font-dm text-sm font-medium tracking-wide px-8 py-3.5 rounded-sm hover:bg-cream transition-colors">
+        CHAT ON WHATSAPP
+      </a>
       <p class="font-dm text-sm text-ivory/60 mt-6">+91 60065 48199</p>
     </div>
   </section>
+
+  <!-- FOOTER -->
   <footer id="contact" class="py-16 md:py-20 border-t border-stone/30">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
       <div class="grid md:grid-cols-3 gap-12 md:gap-8">
         <div>
-          <img src="/images/logo.jpg" alt="ASTA" class="h-10 w-auto mb-5" />
           <p class="font-cormorant italic text-forest text-lg mb-2">From Kashmir, Closer to You.</p>
-          <p class="font-dm text-sm text-charcoal/60 leading-relaxed">Bijbehara, Anantnag<br>Kashmir - 192124</p>
+          <p class="font-dm text-sm text-charcoal/60 leading-relaxed">
+            Bijbehara, Anantnag<br>Kashmir - 192124
+          </p>
         </div>
+        
         <div>
           <h4 class="font-dm text-xs tracking-[0.2em] uppercase text-botanical mb-4">Connect</h4>
           <ul class="space-y-3 font-dm text-sm text-charcoal/70">
@@ -332,35 +419,59 @@
             <li><a href="https://www.instagram.com/houseofasta" target="_blank" rel="noopener" class="hover:text-forest transition-colors">@houseofasta</a></li>
           </ul>
         </div>
+        
         <div>
           <h4 class="font-dm text-xs tracking-[0.2em] uppercase text-botanical mb-4">Details</h4>
-          <p class="font-dm text-sm text-charcoal/60 leading-relaxed">FSSAI License<br>21026017000306</p>
+          <p class="font-dm text-sm text-charcoal/60 leading-relaxed">
+            FSSAI License<br>
+            21026017000306
+          </p>
         </div>
       </div>
+      
       <div class="mt-14 pt-8 border-t border-stone/30 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="font-dm text-xs text-charcoal/50">© 2026 ASTA. All rights reserved.</p>
         <p class="font-dm text-xs text-charcoal/50">Not louder. Just closer.</p>
       </div>
     </div>
   </footer>
+
+  <!-- Mobile sticky CTA -->
   <div class="mobile-cta fixed bottom-0 left-0 right-0 z-40 md:hidden bg-ivory border-t border-stone/40 px-4 py-3">
-    <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="block w-full btn-whatsapp text-center font-dm text-sm font-medium tracking-wide py-3.5 rounded-sm">SHOP ON WHATSAPP</a>
+    <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." 
+       target="_blank" rel="noopener"
+       class="block w-full btn-whatsapp text-center font-dm text-sm font-medium tracking-wide py-3.5 rounded-sm">
+      SHOP ON WHATSAPP
+    </a>
   </div>
+
   <script>
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) header.classList.add('header-scrolled');
-      else header.classList.remove('header-scrolled');
+      if (window.scrollY > 40) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
     });
+
     const menuBtn = document.getElementById('menu-btn');
     const closeMenu = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelectorAll('.menu-link');
+    
     menuBtn?.addEventListener('click', () => mobileMenu.classList.add('open'));
     closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    document.querySelectorAll('.menu-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    menuLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
 </body>
