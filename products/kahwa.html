@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kahwa · Saffron Mist Blend | ASTA — From Kashmir, Closer to You</title>
+  <meta name="description" content="Kahwa Saffron Mist Blend from Kashmir. Finished with saffron and crushed almonds. Order on WhatsApp." />
+  <link rel="icon" href="/images/logo.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory: '#F8F5F0', cream: '#F5F0E8', beige: '#E8E0D4', stone: '#D4CBC0', forest: '#2C3E2D', botanical: '#4A5D4B', saffron: '#C9A227', charcoal: '#2A2A2A' },
+          fontFamily: { cormorant: ['Cormorant Garamond', 'serif'], dm: ['DM Sans', 'sans-serif'] },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; background: #F8F5F0; color: #2A2A2A; }
+    .font-cormorant { font-family: 'Cormorant Garamond', serif; }
+    .btn-whatsapp { background: #2C3E2D; color: #F8F5F0; transition: background 0.3s; }
+    .btn-whatsapp:hover { background: #4A5D4B; }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.45s cubic-bezier(0.22,1,0.36,1); }
+    .accordion-content.open { max-height: 1400px; }
+    .header-scrolled { background: rgba(248,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(44,62,45,0.08); }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
+    .mobile-menu.open { transform: translateX(0); }
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-style: italic; color: #4A5D4B; }
+  </style>
+</head>
+<body class="bg-ivory antialiased">
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 md:py-5 flex items-center justify-between">
+      <a href="/"><span class="font-cormorant text-2xl text-forest tracking-wide">ASTA</span></a>
+      <nav class="hidden md:flex items-center gap-10 font-dm text-sm tracking-wide text-charcoal/80">
+        <a href="/#collection" class="hover:text-forest transition-colors">SHOP</a>
+        <a href="/#story" class="hover:text-forest transition-colors">OUR STORY</a>
+        <a href="/#contact" class="hover:text-forest transition-colors">CONTACT</a>
+        <a href="https://www.instagram.com/houseofasta" target="_blank" rel="noopener" class="hover:text-forest transition-colors">INSTAGRAM</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20Kahwa%20Saffron%20Mist%20Blend." target="_blank" rel="noopener" class="hidden md:inline-flex btn-whatsapp font-dm text-sm font-medium tracking-wide px-5 py-2.5 rounded-sm">ORDER ON WHATSAPP</a>
+        <button id="menu-btn" class="md:hidden p-2" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 bg-ivory md:hidden flex flex-col">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-stone/40">
+      <span class="font-cormorant text-2xl text-forest">ASTA</span>
+      <button id="close-menu" class="p-2" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <nav class="flex flex-col gap-6 px-8 pt-12 font-dm text-lg tracking-wide">
+      <a href="/#collection" class="menu-link">SHOP</a>
+      <a href="/#story" class="menu-link">OUR STORY</a>
+      <a href="/#contact" class="menu-link">CONTACT</a>
+      <a href="https://www.instagram.com/houseofasta" target="_blank" rel="noopener" class="menu-link">INSTAGRAM</a>
+      <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20Kahwa%20Saffron%20Mist%20Blend." target="_blank" rel="noopener" class="btn-whatsapp text-center font-medium tracking-wide px-6 py-3.5 rounded-sm mt-6">ORDER ON WHATSAPP</a>
+    </nav>
+  </div>
+
+  <main class="pt-24 md:pt-28 pb-24 md:pb-16">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div class="fade-up">
+          <div class="aspect-[4/5] overflow-hidden bg-beige">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=1000&q=85" alt="Kahwa Saffron Mist Blend" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="fade-up lg:pt-4">
+          <p class="font-dm text-xs tracking-[0.2em] uppercase text-botanical mb-3">The ASTA Collection</p>
+          <h1 class="font-cormorant text-3xl md:text-4xl text-forest mb-2">Kahwa</h1>
+          <p class="font-cormorant italic text-lg text-charcoal/70 mb-2">Saffron Mist Blend</p>
+          <div class="space-y-4 font-dm text-sm text-charcoal/80 leading-relaxed mb-8 mt-6">
+            <p>Sourced directly from Kashmir’s protected fields.</p>
+            <p>Preserved to retain its natural richness and aroma.</p>
+            <p>Finished with saffron and crushed almonds.</p>
+          </div>
+          <a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20Kahwa%20Saffron%20Mist%20Blend." target="_blank" rel="noopener" class="inline-flex btn-whatsapp font-dm text-sm font-medium tracking-wide px-7 py-3.5 rounded-sm mb-10">ORDER ON WHATSAPP</a>
+
+          <div class="border-t border-stone/40">
+            <button class="accordion-btn w-full flex justify-between items-center py-4 font-dm text-sm font-medium tracking-wide text-left" data-target="details">DETAILS <span class="text-botanical text-lg leading-none">+</span></button>
+            <div id="details" class="accordion-content"><div class="pb-5 font-dm text-sm text-charcoal/70 leading-relaxed space-y-2"><p>Sourced directly from Kashmir’s protected fields. Preserved to retain its natural richness and aroma. Finished with saffron and crushed almonds.</p></div></div>
+            <button class="accordion-btn w-full flex justify-between items-center py-4 font-dm text-sm font-medium tracking-wide text-left border-t border-stone/40" data-target="ingredients">INGREDIENTS <span class="text-botanical text-lg leading-none">+</span></button>
+            <div id="ingredients" class="accordion-content">
+              <div class="pb-5 font-dm text-sm text-charcoal/70 leading-relaxed space-y-3">
+                <p><span class="text-charcoal">Kahwa Powder:</span> Sugar, Green Tea Extract, Ginger, Cardamom, Cinnamon, Cloves, Saffron Strands.</p>
+                <p><span class="text-charcoal">Almond Garnish:</span> Crushed Almond Slices.</p>
+                <p class="text-charcoal/50">Allergen: Contains Almonds.</p>
+              </div>
+            </div>
+            <button class="accordion-btn w-full flex justify-between items-center py-4 font-dm text-sm font-medium tracking-wide text-left border-t border-stone/40" data-target="nutrition">NUTRITION <span class="text-botanical text-lg leading-none">+</span></button>
+            <div id="nutrition" class="accordion-content">
+              <div class="pb-5 font-dm text-sm text-charcoal/70">
+                <p class="mb-3 text-charcoal/50">Per 100g</p>
+                <ul class="space-y-1.5">
+                  <li class="flex justify-between"><span>Energy</span><span>385 kcal</span></li>
+                  <li class="flex justify-between"><span>Protein</span><span>4.8 g</span></li>
+                  <li class="flex justify-between"><span>Total Fat</span><span>3.2 g</span></li>
+                  <li class="flex justify-between"><span>Carbohydrates</span><span>84.2 g</span></li>
+                  <li class="flex justify-between pl-3 text-charcoal/50"><span>Added Sugars</span><span>72.0 g</span></li>
+                  <li class="flex justify-between"><span>Cholesterol</span><span>0 mg</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brewing -->
+      <div class="mt-20 md:mt-28 bg-cream py-14 px-6 md:px-12 rounded-sm">
+        <div class="text-center mb-12">
+          <p class="font-dm text-xs tracking-[0.25em] uppercase text-botanical mb-3">The Ritual</p>
+          <h2 class="font-cormorant text-2xl md:text-3xl text-forest">How to Brew</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10 max-w-4xl mx-auto">
+          <div>
+            <p class="step-num text-3xl mb-3">01</p>
+            <h3 class="font-cormorant text-lg text-forest mb-2">Boil</h3>
+            <p class="font-dm text-sm text-charcoal/70 leading-relaxed">Bring 120ml of water to a rolling boil in a pan.</p>
+          </div>
+          <div>
+            <p class="step-num text-3xl mb-3">02</p>
+            <h3 class="font-cormorant text-lg text-forest mb-2">Infuse</h3>
+            <p class="font-dm text-sm text-charcoal/70 leading-relaxed">Add 1 teaspoon of Kahwa powder and simmer on low heat for 3 to 4 minutes.</p>
+          </div>
+          <div>
+            <p class="step-num text-3xl mb-3">03</p>
+            <h3 class="font-cormorant text-lg text-forest mb-2">Garnish</h3>
+            <p class="font-dm text-sm text-charcoal/70 leading-relaxed">Strain into a cup, add the crushed almond slices to taste, and enjoy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 md:mt-28">
+        <h2 class="font-cormorant text-2xl text-forest mb-8 text-center">You may also like</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a href="/products/raw-almonds.html" class="group"><div class="aspect-square overflow-hidden bg-beige mb-3"><img src="https://images.unsplash.com/photo-1508061253366-f7da027dfa63?w=400&q=80" alt="Raw Almonds" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div><p class="font-cormorant text-base text-forest">Raw Almonds</p></a>
+          <a href="/products/raw-walnut-kernels.html" class="group"><div class="aspect-square overflow-hidden bg-beige mb-3"><img src="https://images.unsplash.com/photo-1599599810694-b5ac4a0f0e1e?w=400&q=80" alt="Walnuts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div><p class="font-cormorant text-base text-forest">Raw Walnut Kernels</p></a>
+          <a href="/products/saffron.html" class="group"><div class="aspect-square overflow-hidden bg-beige mb-3"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80" alt="Saffron" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div><p class="font-cormorant text-base text-forest">Saffron</p></a>
+          <a href="/products/white-honey.html" class="group"><div class="aspect-square overflow-hidden bg-beige mb-3"><img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&q=80" alt="White Honey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div><p class="font-cormorant text-base text-forest">White Honey</p></a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="py-12 border-t border-stone/30"><div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4"><a href="/"><span class="font-cormorant text-xl text-forest">ASTA</span></a><p class="font-dm text-xs text-charcoal/50">© 2026 ASTA · From Kashmir, Closer to You.</p></div></footer>
+  <div class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-ivory border-t border-stone/40 px-4 py-3"><a href="https://wa.me/916006548199?text=Hello%20ASTA%2C%20I%20would%20like%20to%20enquire%20about%20Kahwa%20Saffron%20Mist%20Blend." target="_blank" rel="noopener" class="block w-full btn-whatsapp text-center font-dm text-sm font-medium tracking-wide py-3.5 rounded-sm">ORDER ON WHATSAPP</a></div>
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('header-scrolled', window.scrollY > 40));
+    document.getElementById('menu-btn')?.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
+    document.getElementById('close-menu')?.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+    document.querySelectorAll('.menu-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        const isOpen = target.classList.contains('open');
+        document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+        document.querySelectorAll('.accordion-btn span').forEach(s => s.textContent = '+');
+        if (!isOpen) { target.classList.add('open'); btn.querySelector('span').textContent = '−'; }
+      });
+    });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
