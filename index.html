@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    html{scroll-behavior:smooth;scroll-padding-top:5.5rem}
     body{font-family:'DM Sans',system-ui,sans-serif;background:#F7F4EF;color:#1F1F1F}
     .font-display{font-family:'Cormorant Garamond',Georgia,serif}
     #loader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0E120F;transition:opacity .85s,visibility .85s}
@@ -40,7 +41,17 @@
     <div class="max-w-[1400px] mx-auto px-5 md:px-8 flex items-center justify-between">
       <a href="/"><img src="/images/logo.jpg" alt="ASTA" class="h-9 md:h-10 w-auto object-contain" /></a>
       <nav class="hidden lg:flex items-center gap-9 text-[0.8rem] tracking-[0.08em] text-[#1F1F1F]/75">
-        <a href="#collection" class="hover:text-[#2A3A2B]">SHOP</a>
+        <div class="relative group">
+          <a href="#collection" class="hover:text-[#2A3A2B] inline-flex items-center gap-1">SHOP <span class="text-[0.6rem] opacity-60">▾</span></a>
+          <div class="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="bg-[#F7F4EF] border border-[#D0C8BB]/50 shadow-sm py-3 min-w-[11rem]">
+              <a href="#dry-fruits" class="block px-5 py-2 hover:text-[#2A3A2B] text-[#1F1F1F]/75">Dry Fruits</a>
+              <a href="#kahwa" class="block px-5 py-2 hover:text-[#2A3A2B] text-[#1F1F1F]/75">Kahwa</a>
+              <a href="#saffron" class="block px-5 py-2 hover:text-[#2A3A2B] text-[#1F1F1F]/75">Saffron</a>
+              <a href="#honey" class="block px-5 py-2 hover:text-[#2A3A2B] text-[#1F1F1F]/75">White Honey</a>
+            </div>
+          </div>
+        </div>
         <a href="#story" class="hover:text-[#2A3A2B]">OUR STORY</a>
         <a href="#kashmir" class="hover:text-[#2A3A2B]">KASHMIR</a>
         <a href="#kahwa" class="hover:text-[#2A3A2B]">KAHWA</a>
@@ -57,8 +68,16 @@
       <img src="/images/logo.jpg" alt="ASTA" class="h-9 w-auto" />
       <button id="close-menu" class="p-2" aria-label="Close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
-    <nav class="flex flex-col gap-6 px-8 pt-14 text-lg">
-      <a href="#collection" class="m-link">SHOP</a><a href="#story" class="m-link">OUR STORY</a><a href="#kashmir" class="m-link">KASHMIR</a><a href="#kahwa" class="m-link">KAHWA</a><a href="#contact" class="m-link">CONTACT</a>
+    <nav class="flex flex-col gap-5 px-8 pt-12 text-lg">
+      <p class="text-[0.65rem] tracking-[0.2em] uppercase text-[#4A5C4B] mb-1">Shop</p>
+      <a href="#dry-fruits" class="m-link pl-1">Dry Fruits</a>
+      <a href="#kahwa" class="m-link pl-1">Kahwa</a>
+      <a href="#saffron" class="m-link pl-1">Saffron</a>
+      <a href="#honey" class="m-link pl-1">White Honey</a>
+      <div class="h-px bg-[#D0C8BB]/40 my-2"></div>
+      <a href="#story" class="m-link">Our Story</a>
+      <a href="#kashmir" class="m-link">Kashmir</a>
+      <a href="#contact" class="m-link">Contact</a>
       <a href="https://wa.me/916006548199" target="_blank" class="btn-primary mt-8 justify-center">ORDER ON WHATSAPP ↗</a>
     </nav>
   </div>
@@ -72,7 +91,7 @@
         <div class="max-w-2xl reveal">
           <p class="text-[0.7rem] tracking-[0.28em] uppercase text-[#4A5C4B] mb-5">Kashmir Closer</p>
           <h1 class="font-display text-[clamp(2.75rem,7vw,4.75rem)] leading-[1.05] text-[#2A3A2B] mb-6">From Kashmir,<br />Closer to You.</h1>
-          <p class="text-base md:text-lg text-[#1F1F1F]/75 leading-relaxed max-w-md mb-10">A little of Kashmir, brought closer from golden honey and Mongra saffron to Kahwa and carefully chosen dry fruits.</p>
+          <p class="text-base md:text-lg text-[#1F1F1F]/75 leading-relaxed max-w-md mb-10">A little of Kashmir, brought closer — from white honey and Raw Mongra saffron to Kahwa and carefully chosen dry fruits.</p>
           <div class="flex flex-wrap gap-3">
             <a href="https://wa.me/916006548199?text=Hello%20ASTA" target="_blank" class="btn-primary">SHOP ON WHATSAPP <span>↗</span></a>
             <a href="#collection" class="btn-ghost">EXPLORE COLLECTION <span>↓</span></a>
@@ -106,7 +125,6 @@
         <div class="w-9 h-px bg-[#B89B5E] mx-auto opacity-70"></div>
       </div>
     </section>
-    <!-- DRY FRUITS / KAHWA / SAFFRON / HONEY sections with qty selectors continue in full local file -->
     <section id="dry-fruits" class="py-24 md:py-32">
       <div class="max-w-[1400px] mx-auto px-5 md:px-8">
         <div class="mb-16 reveal"><p class="text-[0.7rem] tracking-[0.28em] uppercase text-[#4A5C4B] mb-3">Kashmiri Dry Fruits</p><h2 class="font-display text-4xl md:text-5xl text-[#2A3A2B] leading-[1.1]">Kept in<br />Its Character.</h2></div>
