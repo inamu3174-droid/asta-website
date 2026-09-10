@@ -1,1 +1,70 @@
-LOADING
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raw Mongra Saffron | Velora — From Kashmir, Closer to You</title>
+  <meta name="description" content="Raw Mongra Saffron from Kashmir. Hand-selected with absolute care. Order on WhatsApp." />
+  <link rel="icon" href="/images/velora-logo.jpg" type="image/jpeg" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{font-family:'DM Sans',system-ui,sans-serif;background:#F7F4EF;color:#1F1F1F}
+    .font-display{font-family:'Cormorant Garamond',Georgia,serif}
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:#2A3A2B;color:#F7F4EF;font-size:.8125rem;font-weight:500;letter-spacing:.06em;padding:.9rem 1.5rem;transition:background .3s}
+    .btn-primary:hover{background:#4A5C4B}
+    .qty-pill{min-width:4.25rem;padding:.55rem .85rem;border:1px solid rgba(42,58,43,.18);font-size:.75rem;font-weight:500;background:transparent;cursor:pointer;transition:all .25s}
+    .qty-pill.active{background:#2A3A2B;border-color:#2A3A2B;color:#F7F4EF}
+  </style>
+</head>
+<body class="bg-[#F7F4EF] antialiased">
+  <header class="fixed top-0 left-0 right-0 z-50 py-4">
+    <div class="max-w-[1200px] mx-auto px-5 flex items-center justify-between">
+      <a href="/"><img src="/images/velora-logo.jpg" alt="Velora" class="h-9 w-auto" /></a>
+      <a href="https://wa.me/916006548199?text=Hello%20Velora" target="_blank" rel="noopener" class="btn-primary">ORDER ON WHATSAPP <span>↗</span></a>
+    </div>
+  </header>
+  <main class="pt-24 pb-28">
+    <div class="max-w-[1200px] mx-auto px-5">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="aspect-[4/5] bg-[#E5DFD4] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1000&q=85" alt="Raw Mongra Saffron" class="w-full h-full object-cover" />
+        </div>
+        <div>
+          <p class="text-[0.7rem] tracking-[0.28em] uppercase text-[#4A5C4B] mb-3">Raw Mongra Saffron</p>
+          <h1 class="font-display text-3xl md:text-4xl text-[#2A3A2B] mb-4">The Golden Thread of Kashmir.</h1>
+          <p class="text-sm text-[#1F1F1F]/75 mb-8">Born from Kashmir&rsquo;s most treasured bloom. Hand-selected with absolute care. Kept genuine from the source.</p>
+          <p class="text-[0.7rem] tracking-[0.18em] uppercase text-[#4A5C4B] mb-3">Select Quantity</p>
+          <div id="qty-group" class="flex flex-wrap gap-2 mb-4">
+            <button type="button" class="qty-pill active" data-qty="1 g">1 g</button>
+            <button type="button" class="qty-pill" data-qty="2 g">2 g</button>
+            <button type="button" class="qty-pill" data-qty="3 g">3 g</button>
+            <button type="button" class="qty-pill" data-qty="5 g">5 g</button>
+          </div>
+          <p class="text-xs text-[#8A857C] mb-6"><a href="#" id="custom-qty" class="underline">Looking for a different quantity? We&rsquo;d be happy to prepare it for you.</a></p>
+          <a href="#" id="wa-order" class="btn-primary" data-qty="1 g">ORDER ON WHATSAPP <span>↗</span></a>
+          <div class="mt-10 space-y-3 text-sm text-[#1F1F1F]/70">
+            <p><span class="font-medium text-[#1F1F1F]">Ingredients</span> — Saffron Strands (Crocus sativus).</p>
+            <p><span class="font-medium text-[#1F1F1F]">Care</span> — Keep well sealed. Store in a cool, dark place. Do not refrigerate.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="py-10 border-t border-[#D0C8BB]/30">
+    <div class="max-w-[1200px] mx-auto px-5 flex justify-between items-center">
+      <a href="/"><img src="/images/velora-logo.jpg" alt="Velora" class="h-8 w-auto" /></a>
+      <p class="text-xs text-[#8A857C]">&copy; 2026 Velora</p>
+    </div>
+  </footer>
+  <script>
+    var WA='916006548199',product='Raw Mongra Saffron';
+    function buildWA(q){return 'https://wa.me/'+WA+'?text='+encodeURIComponent('Hi Velora, I\u2019d like to order:\n\nProduct: '+product+'\nQuantity: '+q+'\n\nPlease share the details for placing my order.')}
+    function buildCustom(){return 'https://wa.me/'+WA+'?text='+encodeURIComponent('Hi Velora, I\u2019m looking for a different quantity of '+product+'. Could you please help me with availability and pricing?')}
+    var pills=document.querySelectorAll('#qty-group .qty-pill'),orderBtn=document.getElementById('wa-order');
+    pills.forEach(function(pill){pill.addEventListener('click',function(){pills.forEach(function(p){p.classList.remove('active')});pill.classList.add('active');orderBtn.href=buildWA(pill.getAttribute('data-qty'))})});
+    orderBtn.href=buildWA('1 g');
+    document.getElementById('custom-qty').addEventListener('click',function(e){e.preventDefault();window.open(buildCustom(),'_blank')});
+  </script>
+</body>
+</html>
